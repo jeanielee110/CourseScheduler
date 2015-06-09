@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title> Bluesheet Mock
+		</title>
+	</head>
+	<body>
+		<div class="initial_schedule">
+			<button type="button" class="toggle">Minimize</button>
+			<span class="option">
+				Schedule 1
+			</span>
+		</div>
+		<div class="schedule2">
+			<button type="button" class="toggle">Minimize</button>
+			<span class="option">
+				Schedule 2
+			</span>
+		</div>
+		<div class="schedule3">
+			<button type="button" class="toggle">Minimize</button>
+			<span class="option">
+				Schedule 3
+			</span>
+		</div>
+		<div class="schedule4">
+			<button type="button" class="toggle">Minimize</button>
+			<span class="option">
+				Schedule 4
+			</span>
+		</div>
+		<div class="schedule5">
+			<button type="button" class="toggle">Minimize</button>
+			<span class="option">
+				Schedule 5
+			</span>
+		</div>
+
+		<div class="add_schedule">
+			<button type="button" class="schedule_adder"> Add Schedule </button>
+
+		</div>
+		<style>
+			.schedule2 {
+				display: none;
+			}
+			.schedule3 {
+				display: none;
+			}
+			.schedule4 {
+				display: none;
+			}
+			.schedule5 {
+				display: none;
+			}
+		</style>
+
+		<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				var num_schedules = 2;
+				$(document).on('click', 'button.toggle', function() {
+					$(this).closest('div').find('.option').slideToggle();
+					var buttonText = $(this).closest('div').find('.toggle').text();
+					if (buttonText === "Minimize") {
+						$(this).closest('div').find('.toggle').text("Maximize");
+					}
+					else {
+						$(this).closest('div').find('.toggle').text("Minimize");
+					};
+
+				});
+				$('.add_schedule').on('click', 'button.schedule_adder', function(){
+					$('.schedule' + num_schedules).slideDown();
+					num_schedules++;
+				});
+		});
+		</script>
+	</body>
+
+</html>
